@@ -25,4 +25,10 @@ public class MyStorePage {
     public static By cantidadCarrito = By.xpath("//strong[normalize-space()='2']");
     public static By precioUnitario = By.xpath("//p[@class='product-price']");
     public static By precioTotal = By.xpath("//span[@class='value'][normalize-space()='S/ 38.24']");
+    public static By botonFinalizarCompra = By.xpath("//div[@class='cart-content-btn']//a[@class='btn btn-primary']");
+
+    //Dentro del Carrito
+    public static By tituloCarrito = By.xpath("//h1[normalize-space()='Carrito']");
+    public static By precioTotalCarrito = By.xpath("//div[@id='cart-subtotal-products']//span[@class='value']");
+    public static By precioUnitarioCarrito = By.xpath("//span[@class='price']");
 }

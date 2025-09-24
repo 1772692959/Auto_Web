@@ -76,20 +76,18 @@ public class MyStoreStepsDef {
 
     @Cuando("finalizo la compra")
     public void finalizoLaCompra() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        MyStore.finalizePurchase();
+        screenShot();
     }
 
     @Entonces("valido el titulo de la pagina del carrito")
     public void validoElTituloDeLaPaginaDelCarrito() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        MyStore.TitleCarrito();
     }
 
     @Y("vuelvo a validar el calculo de precios en el carrito")
     public void vuelvoAValidarElCalculoDePreciosEnElCarrito() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        MyStore.ValidPriceTotalCarrito();
     }
 
 

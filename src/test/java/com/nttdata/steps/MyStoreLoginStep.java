@@ -3,8 +3,6 @@ package com.nttdata.steps;
 import com.nttdata.page.MyStorePage;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import com.nttdata.page.LoginPage;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -56,6 +54,9 @@ public class MyStoreLoginStep {
 
     //Click en SubBoton Men
     public void SubButtonMen() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(9));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(MyStorePage.subbotonMen));
+        Assert.assertTrue(driver.findElement(MyStorePage.subbotonMen).isDisplayed());
         this.driver.findElement(MyStorePage.subbotonMen).click();
     }
 
@@ -76,7 +77,7 @@ public class MyStoreLoginStep {
 
     //Aparece el PopUp
     public void ValidPopUp() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(9));
         wait.until(ExpectedConditions.visibilityOfElementLocated(MyStorePage.popupCarrito));
         Assert.assertTrue(driver.findElement(MyStorePage.popupCarrito).isDisplayed());
 
@@ -109,6 +110,37 @@ public class MyStoreLoginStep {
             System.out.println("Monto unitario: " + MontoUnitario);
             System.out.println("Monto total incorrecto");
             System.out.println("Monto total: " + MontoTotal);
+        }
+    }
+
+    //Click en Finalizar compra
+    public void finalizePurchase() {
+        this.driver.findElement(MyStorePage.botonFinalizarCompra).click();
+    }
+
+    public void TitleCarrito() {
+        String TituloCarrito = this.driver.findElement(MyStorePage.tituloCarrito).getText();
+        //Comparar que si diga carrito
+        if (TituloCarrito.equals("CARRITO")) {
+            System.out.println("Estamos dentro de CARRITO");
+        }else{
+            System.out.println("Página equivocada");
+        }
+    }
+
+    public void ValidPriceTotalCarrito() {
+        String precioUnitarioCarritoTexto = this.driver.findElement(MyStorePage.precioUnitarioCarrito).getText(); // "S/ 19.12"
+        String precioTotalCarritoTexto = this.driver.findElement(MyStorePage.precioTotalCarrito).getText();       // "S/ 38.24"
+        double MontoUnitarioCarrito = Double.parseDouble(precioUnitarioCarritoTexto.replace("S/", "").trim());
+        double MontoTotalCarrito = Double.parseDouble(precioTotalCarritoTexto.replace("S/", "").trim());
+        if ((MontoUnitarioCarrito * 2) == MontoTotalCarrito) {
+            System.out.println("Monto unitario: " + MontoUnitarioCarrito);
+            System.out.println("Monto total: " + MontoTotalCarrito);
+            System.out.println("Suma correcta de 2 productos");
+        } else {
+            System.out.println("Monto unitario: " + MontoUnitarioCarrito);
+            System.out.println("Monto total incorrecto");
+            System.out.println("Monto total: " + MontoTotalCarrito);
         }
     }
 }
