@@ -14,6 +14,7 @@ Característica: Product - Store
     Cuando finalizo la compra
     Entonces valido el titulo de la pagina del carrito
     Y vuelvo a validar el calculo de precios en el carrito
+    Y finalizo la compra compra del carrito
 
     Ejemplos:
     | usuario            | contrasena          |

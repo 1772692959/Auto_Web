@@ -90,5 +90,9 @@ public class MyStoreStepsDef {
         MyStore.ValidPriceTotalCarrito();
     }
 
-
+    @Y("finalizo la compra compra del carrito")
+    public void finalizoLaCompraCompraDelCarrito() {
+        MyStore.finalizePurchaseCarrito();
+        screenShot();
+    }
 }

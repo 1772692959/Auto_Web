@@ -31,4 +31,5 @@ public class MyStorePage {
     public static By tituloCarrito = By.xpath("//h1[normalize-space()='Carrito']");
     public static By precioTotalCarrito = By.xpath("//div[@id='cart-subtotal-products']//span[@class='value']");
     public static By precioUnitarioCarrito = By.xpath("//span[@class='price']");
+    public static By botonFinalizarCompraCarrito = By.xpath("//a[normalize-space()='Finalizar compra']");
 }

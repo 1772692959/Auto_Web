@@ -143,4 +143,8 @@ public class MyStoreLoginStep {
             System.out.println("Monto total: " + MontoTotalCarrito);
         }
     }
+
+    public void finalizePurchaseCarrito() {
+        this.driver.findElement(MyStorePage.botonFinalizarCompraCarrito).click();
+    }
 }
