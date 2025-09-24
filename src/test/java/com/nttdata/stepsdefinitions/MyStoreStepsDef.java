@@ -1,6 +1,5 @@
 package com.nttdata.stepsdefinitions;
 
-import com.nttdata.steps.LoginSteps;
 import com.nttdata.steps.MyStoreLoginStep;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.es.Cuando;
@@ -18,8 +17,8 @@ public class MyStoreStepsDef {
     public WebDriver driver;
     public MyStoreLoginStep MyStore;
 
-    private LoginSteps inventorySteps(WebDriver driver){
-        return new LoginSteps(driver);
+    private MyStoreLoginStep inventorySteps(WebDriver driver){
+        return new MyStoreLoginStep(driver);
     }
 
     @Dado("estoy en la página de la tienda")

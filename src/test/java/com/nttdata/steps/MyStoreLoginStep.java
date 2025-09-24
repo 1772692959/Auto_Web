@@ -14,7 +14,6 @@ import org.openqa.selenium.interactions.Actions;
 public class MyStoreLoginStep {
 
     public WebDriver driver;
-    public int cantidadproducto;
 
     //constructor
     public MyStoreLoginStep(WebDriver driver){
@@ -85,7 +84,7 @@ public class MyStoreLoginStep {
         int cantidadActual = Integer.parseInt(this.driver.findElement(MyStorePage.cantidadCarrito).getText());
 
         if(cantidadActual == 2){
-            System.out.println("Hay 2 productos");
+            System.out.println("Se agrega 2 productos");
         }
         else{
             System.out.println("Cantidad erronea de productos");
@@ -146,5 +145,6 @@ public class MyStoreLoginStep {
 
     public void finalizePurchaseCarrito() {
         this.driver.findElement(MyStorePage.botonFinalizarCompraCarrito).click();
+        System.out.println("Compra realizada de 2 productos");
     }
 }
