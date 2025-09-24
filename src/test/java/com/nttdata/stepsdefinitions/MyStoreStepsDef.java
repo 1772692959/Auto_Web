@@ -16,7 +16,7 @@ import static com.nttdata.core.DriverManager.screenShot;
 public class MyStoreStepsDef {
 
     public WebDriver driver;
-    public MyStoreLoginStep MyStoreIniciarSesion;
+    public MyStoreLoginStep MyStore;
 
     private LoginSteps inventorySteps(WebDriver driver){
         return new LoginSteps(driver);
@@ -24,7 +24,7 @@ public class MyStoreStepsDef {
 
     @Dado("estoy en la página de la tienda")
     public void estoyEnLaPáginaDeLaTienda() {
-        MyStoreIniciarSesion = new MyStoreLoginStep(driver);
+        MyStore = new MyStoreLoginStep(driver);
         driver = getDriver();
         driver.get("https://qalab.bensg.com/store");
         screenShot();
@@ -32,8 +32,8 @@ public class MyStoreStepsDef {
 
     @Y("voy a la pantalla de Iniciar Sesion")
     public void voyALaPantallaDeIniciarSesion() {
-        MyStoreIniciarSesion = new MyStoreLoginStep(driver);
-        MyStoreIniciarSesion.ClickPaginaLogin();
+        MyStore = new MyStoreLoginStep(driver);
+        MyStore.ClickPaginaLogin();
         screenShot();
     }
 
@@ -48,26 +48,30 @@ public class MyStoreStepsDef {
 
     @Cuando("navego a la categoria {string} y subcategoria {string}")
     public void navegoALaCategoriaYSubcategoria(String arg0, String arg1) {
-        MyStoreIniciarSesion.ButtonClothes();
-        MyStoreIniciarSesion.SubButtonMen();
+        MyStore.ButtonClothes();
+        MyStore.SubButtonMen();
         screenShot();
     }
 
     @Y("agrego {int} unidades del primer producto al carrito")
     public void agregoUnidadesDelPrimerProductoAlCarrito(int arg0) {
-        MyStoreIniciarSesion.ButtonProduct();
+        MyStore.ButtonProduct();
+        MyStore.AddProduct();
+        MyStore.ButtonCart();
+        screenShot();
     }
 
     @Entonces("valido en el popup la confirmación del producto agregado")
     public void validoEnElPopupLaConfirmaciónDelProductoAgregado() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        MyStore.ValidPopUp();
+        screenShot();
+
     }
 
     @Y("valido en el popup que el monto total sea calculado correctamente")
     public void validoEnElPopupQueElMontoTotalSeaCalculadoCorrectamente() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        MyStore.validPrice();
+        screenShot();
     }
 
     @Cuando("finalizo la compra")
