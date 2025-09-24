@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import org.openqa.selenium.interactions.Actions;
+
 
 
 public class MyStoreLoginStep {
@@ -38,6 +40,23 @@ public class MyStoreLoginStep {
     }
 
     //Click en Boton Iniciar Sesión
+    public void ButtonLogin() {
+        this.driver.findElement(MyStorePage.botonIniciarSesion).click();
+    }
 
+    //Click en Boton Clothes
+    public void ButtonClothes(){
+        Actions action = new Actions(this.driver);
+        action.moveToElement(this.driver.findElement(MyStorePage.botonClothes)).perform();
+    }
 
+    //Click en SubBoton Men
+    public void SubButtonMen() {
+        this.driver.findElement(MyStorePage.subbotonMen).click();
+    }
+
+    //Click en Boton del primer producto
+    public void ButtonProduct() {
+        this.driver.findElement(MyStorePage.botonProducto).click();
+    }
 }

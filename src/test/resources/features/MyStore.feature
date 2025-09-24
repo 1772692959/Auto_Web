@@ -17,4 +17,4 @@ Característica: Product - Store
 
     Ejemplos:
     | usuario            | contrasena          |
-    | hug-12@hotmail.com | starcraftstarcraft2 |
+    | hug-12@hotmail.com | starcraftystarcraft2 |

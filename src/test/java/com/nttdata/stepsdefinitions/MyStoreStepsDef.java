@@ -42,20 +42,20 @@ public class MyStoreStepsDef {
         MyStoreLoginStep loginSteps = new MyStoreLoginStep(driver);
         loginSteps.typeUser(usuario);
         loginSteps.typePassword(contrasena);
-//        loginSteps.login();
+        loginSteps.ButtonLogin();
         screenShot();
     }
 
     @Cuando("navego a la categoria {string} y subcategoria {string}")
     public void navegoALaCategoriaYSubcategoria(String arg0, String arg1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        MyStoreIniciarSesion.ButtonClothes();
+        MyStoreIniciarSesion.SubButtonMen();
+        screenShot();
     }
 
     @Y("agrego {int} unidades del primer producto al carrito")
     public void agregoUnidadesDelPrimerProductoAlCarrito(int arg0) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        MyStoreIniciarSesion.ButtonProduct();
     }
 
     @Entonces("valido en el popup la confirmación del producto agregado")
